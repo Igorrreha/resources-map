@@ -1,0 +1,35 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+_global_script_classes=[{
+"base": "Resource",
+"class": &"ResourceA",
+"language": &"GDScript",
+"path": "res://resources/resource_a.gd"
+}, {
+"base": "Control",
+"class": &"ResourceMapDock",
+"language": &"GDScript",
+"path": "res://addons/resources_map/resource_map_dock.gd"
+}]
+_global_script_class_icons={
+"ResourceA": "",
+"ResourceMapDock": ""
+}
+
+[application]
+
+config/name="ResourcesMap"
+config/icon="res://icon.png"
+config/features=PackedStringArray("4.0", "Vulkan Clustered")
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/resources_map/plugin.cfg")

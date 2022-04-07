@@ -1,0 +1,14 @@
+102b54792f6b2ef812636a2bdaeb9d34
+::res://::1649301422
+icon.png::CompressedTexture2D::2670616293409694214::1648983985::1648983991::1::::<><>::
+main.tscn::PackedScene::6246885002461118386::1649300927::0::1::::<><>::
+::res://addons/::1648984246
+::res://addons/resources_map/::1649301194
+plugin.cfg::TextFile::-1::1649300640::0::1::::<><>::
+resources_map.gd::GDScript::-1::1649301088::0::1::::<>EditorPlugin<>::
+resource_map_dock.gd::GDScript::-1::1649301194::0::1::::ResourceMapDock<>Control<>::
+resource_map_dock.tscn::PackedScene::4995982197201036465::1649301194::0::1::::<><>::res://addons/resources_map/resource_map_dock.gd
+test.gd::GDScript::-1::1648986544::0::1::::<>Control<>::
+::res://resources/::1649176479
+new_resource.tres::Resource::4421518291978295991::1649127621::0::1::::<><>::res://resources/resource_a.gd
+resource_a.gd::GDScript::-1::1649176479::0::1::::ResourceA<>Resource<>::
