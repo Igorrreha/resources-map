@@ -1,3 +1,5 @@
-res://addons/resources_map/resource_map_dock.gd
+res://addons/resources_map/graph_node_prop_container.gd
+res://addons/resources_map/graph_node_prop_container.tscn
 res://addons/resources_map/resource_map_dock.tscn
 res://resources/resource_a.gd
+res://test_tool.gd

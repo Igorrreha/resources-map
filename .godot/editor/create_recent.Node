@@ -1,7 +1,10 @@
+Button
+Label
+HBoxContainer
+GraphNode
 GraphEdit
 Node
 AnimationTree
 HSlider
-Button
 ColorRect
 Control

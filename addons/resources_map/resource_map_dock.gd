@@ -7,5 +7,5 @@ extends Control
 func setup(resource: Resource):
 	var props = resource.get_property_list()
 	
-	props.filter(func(x): x.hint_string == "Resource")
+	props.filter(func(x): x.usage == "PROPERTY_USAGE_SCRIPT_VARIABLE")
 	print(props)
