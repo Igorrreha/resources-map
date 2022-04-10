@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdgddj8hhg0lx"]
+
+[ext_resource type="Script" path="res://addons/resources_map/resource_map_dock.gd" id="1_g8pxq"]
+
+[node name="ResourceMapDock" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( "1_g8pxq" )
+_graph_edit_path = NodePath("GraphEdit")
+
+[node name="GraphEdit" type="GraphEdit" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_layout_mode = 1
+metadata/_edit_use_custom_anchors = false
