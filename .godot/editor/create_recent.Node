@@ -1,7 +1,7 @@
-Button
 Label
-HBoxContainer
 GraphNode
+Button
+HBoxContainer
 GraphEdit
 Node
 AnimationTree

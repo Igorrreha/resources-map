@@ -2,28 +2,12 @@
 extends HBoxContainer
 
 
-@export_node_path(Label) var _label_path
+@export_node_path(Label) var _name_label_path
+@export_node_path(Label) var _value_label_path
 
 
-func setup(property: Dictionary):
-	var label = get_node(_label_path) as Label
-	label.text = property.name
-
-
-func _create_input_control_for_prop(prop) -> Control:
-	match prop.type:
-		TYPE_INT:
-			var control = SpinBox.new()
-			
-			
-			
-		TYPE_FLOAT:
-			pass
-		TYPE_COLOR:
-			pass
-		TYPE_OBJECT:
-			pass
-	
-	var control = Label.new()
-	control.text = prop.name
-	return 
+func setup(property: Dictionary, value):
+	var name_label = get_node(_name_label_path) as Label
+	var value_label = get_node(_value_label_path) as Label
+	name_label.text = property.name
+	value_label.text = str(value)
