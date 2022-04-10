@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://ba5ooascalan5"]
+
+[ext_resource type="Resource" uid="uid://b3820346q0d3l" path="res://resources/new_resource.tres" id="1_qjl5j"]
+[ext_resource type="Resource" uid="uid://bo2pchlvegnry" path="res://resources/new_resource2.tres" id="2_66g88"]
+[ext_resource type="Script" path="res://resources/resource_a.gd" id="3_x1x2r"]
+
+[resource]
+script = ExtResource( "3_x1x2r" )
+a = ExtResource( "1_qjl5j" )
+ab = ExtResource( "2_66g88" )
+b = 3
+c = -2
