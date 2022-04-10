@@ -14,6 +14,7 @@ func _enter_tree():
 	_fill_resources_connections(resources)
 	
 	ResourcesMapEvents.connect("resource_node_selected", _on_resource_node_selected)
+	ResourcesMapEvents.connect("graph_nodes_created", _on_graph_nodes_created)
 	_dock = _dock_tscn.instantiate() as ResourceMapDock
 	_dock.minimum_size.y = 300
 	
@@ -108,6 +109,14 @@ func _on_resource_node_selected(node):
 	
 	editor_iface.inspect_object(resource)
 	editor_iface.get_file_system_dock().navigate_to_path(resource.resource_path)
+
+
+func _on_graph_nodes_created():
+	for resource in _resources_connections:
+		var connections: Array[ResourceConnection] = _resources_connections[resource].connections_out
+		ResourcesMapEvents.emit_signal("node_connections_requested", resource, connections)
+	
+	ResourcesMapEvents.emit_signal("all_nodes_connections_created")
 
 
 class ResourceConnections:

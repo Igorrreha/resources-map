@@ -4,3 +4,7 @@ extends Node
 
 
 signal resource_node_selected
+signal graph_nodes_created
+signal nodes_created
+signal node_connections_requested
+signal all_nodes_connections_created
