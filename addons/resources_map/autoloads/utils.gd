@@ -13,3 +13,9 @@ func get_exported_props(resource: Resource) -> Array:
 			return x.usage == PROPERTY_USAGE_EXPORT)
 	
 	return filtered_props
+
+
+func get_resource_name(resource: Resource) -> String:
+	return (resource.resource_path.get_file()
+		if resource.resource_name.is_empty()
+		else resource.resource_name)

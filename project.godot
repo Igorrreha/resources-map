@@ -23,11 +23,17 @@ _global_script_classes=[{
 "class": &"ResourceMapDock",
 "language": &"GDScript",
 "path": "res://addons/resources_map/resource_map_dock.gd"
+}, {
+"base": "RefCounted",
+"class": &"ResourcesConnectionsProvider",
+"language": &"GDScript",
+"path": "res://addons/resources_map/resources_connections_storage.gd"
 }]
 _global_script_class_icons={
 "ResourceA": "",
 "ResourceGraphNode": "",
-"ResourceMapDock": ""
+"ResourceMapDock": "",
+"ResourcesConnectionsProvider": ""
 }
 
 [application]
