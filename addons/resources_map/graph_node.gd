@@ -20,6 +20,7 @@ func setup(resource: Resource):
 	var last_slot_idx := 0
 	var last_out
 	
+	
 	for i in range(props.size()):
 		var prop = props[i]
 		var prop_slot = _create_property_slot(resource, prop)
