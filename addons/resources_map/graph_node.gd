@@ -16,6 +16,7 @@ func setup(resource: Resource):
 	name = str(resource)
 	title = _get_resource_name(resource)
 	
+	
 	var props = ResourcesMapUtils.get_exported_props(resource)
 	var last_slot_idx := 0
 	var last_out
