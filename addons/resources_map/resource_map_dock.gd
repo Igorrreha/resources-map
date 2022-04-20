@@ -57,6 +57,14 @@ func _create_out_connections(resource: Resource, connections: Array):
 		_graph_edit.connect_node(node_from.name, slot_from_idx, node_to.name, slot_to_idx)
 
 
+func _clear_out_connections(resource: Resource):
+	var node_from: ResourceGraphNode = _resources_nodes[resource]
+	var connections = _graph_edit.get_connection_list()
+	for connection in connections:
+		if connection.from == node_from.name:
+			_graph_edit.disconnect_node(connection.from, connection.from_port, connection.to, connection.to_port)
+
+
 func _arrange_all_graph_nodes():
 	for child in _resources_nodes.values():
 		child.selected = true
@@ -72,7 +80,9 @@ func _on_node_selected(node):
 
 
 func _on_resource_connections_changed(resource: Resource):
-	prints("resource_connections_changed", resource)
+	_clear_out_connections(resource)
+	var out_connections := _resources_connections_provider.get_out_connections(resource)
+	_create_out_connections(resource, out_connections)
 
 
 func _on_resource_changed(resource: Resource):
