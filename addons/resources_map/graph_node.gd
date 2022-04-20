@@ -55,3 +55,11 @@ func _create_property_container(prop) -> Control:
 	
 	return prop_container
 
+
+func _gui_input(event):
+	event = event as InputEventMouseButton
+	if not event:
+		return
+	
+	if event.double_click:
+		ResourcesMapEvents.resource_node_dblclicked.emit(self)

@@ -7,10 +7,12 @@ var _dock_tscn = preload("res://addons/resources_map/resource_map_dock.tscn")
 var _dock: ResourceMapDock
 
 var _graph_edit: GraphEdit
+var _editor_iface: EditorInterface
 
 
 func _enter_tree():
 #	_connect_editor_signals()
+	_editor_iface = get_editor_interface()
 	
 	var resources: Array[Resource] = _get_all_resources()
 	
@@ -19,6 +21,7 @@ func _enter_tree():
 	
 	_dock.setup(resources)
 	_dock.node_selected.connect(_on_resource_node_selected)
+	ResourcesMapEvents.resource_node_dblclicked.connect(_on_resource_node_dblclicked)
 	
 	add_control_to_bottom_panel(_dock, "Resources Map")
 	make_bottom_panel_item_visible(_dock)
@@ -27,6 +30,7 @@ func _enter_tree():
 func _exit_tree():
 #	_disconnect_editor_signals()
 	_dock.node_selected.disconnect(_on_resource_node_selected)
+	ResourcesMapEvents.resource_node_dblclicked.disconnect(_on_resource_node_dblclicked)
 	remove_control_from_bottom_panel(_dock)
 	_dock.queue_free()
 
@@ -81,13 +85,15 @@ func _get_all_resources() -> Array[Resource]:
 
 
 func _on_resource_node_selected(node):
-	var editor_iface := get_editor_interface()
 	var resource = node.resource
-	
-	editor_iface.inspect_object(resource)
-	editor_iface.get_file_system_dock().navigate_to_path(resource.resource_path)
+	_editor_iface.get_file_system_dock().navigate_to_path(resource.resource_path)
 
-#
+
+func _on_resource_node_dblclicked(node):
+	var resource = node.resource
+	_editor_iface.inspect_object(resource)
+
+
 #func _on_file_removed(file: String):
 #	print("re " + file)
 #func _on_edited_object_changed():
