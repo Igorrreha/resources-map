@@ -30,7 +30,7 @@ func _ready():
 	_connect_graph_nodes()
 	_arrange_all_graph_nodes()
 	
-	_graph_edit.connect("node_selected", _on_node_selected)
+	_graph_edit.node_selected.connect(_on_node_selected)
 
 
 func _create_graph_nodes():
@@ -39,7 +39,7 @@ func _create_graph_nodes():
 		graph_node.setup(resource)
 		_graph_edit.add_child(graph_node)
 		_resources_nodes[resource] = graph_node
-		resource.connect("changed", _on_resource_changed, [resource])
+		resource.changed.connect(_on_resource_changed.bind(resource))
 
 
 func _connect_graph_nodes():
@@ -68,7 +68,7 @@ func _arrange_all_graph_nodes():
 
 
 func _on_node_selected(node):
-	emit_signal("node_selected", node)
+	node_selected.emit(node)
 
 
 func _on_resource_connections_changed(resource: Resource):

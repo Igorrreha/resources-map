@@ -1,9 +1,8 @@
+res://addons/resources_map/autoloads/events.gd
 res://addons/resources_map/graph_node_prop_container.gd
+res://addons/resources_map/resource_map_dock.gd
 res://addons/resources_map/resources_connections_storage.gd
+res://addons/resources_map/resources_map.gd
 res://main.tscn
-res://resources/1.tres
-res://resources/2.tres
-res://resources/4.tres
-res://resources/new_resource.tres
-res://resources/new_resource2.tres
 res://resources/resource_a.gd
+res://test_tool.gd

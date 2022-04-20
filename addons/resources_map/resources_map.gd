@@ -18,7 +18,7 @@ func _enter_tree():
 	_dock.minimum_size.y = 300
 	
 	_dock.setup(resources)
-	_dock.connect("node_selected", _on_resource_node_selected)
+	_dock.node_selected.connect(_on_resource_node_selected)
 	
 	add_control_to_bottom_panel(_dock, "Resources Map")
 	make_bottom_panel_item_visible(_dock)
@@ -26,7 +26,7 @@ func _enter_tree():
 
 func _exit_tree():
 #	_disconnect_editor_signals()
-	_dock.disconnect("node_selected", _on_resource_node_selected)
+	_dock.node_selected.disconnect(_on_resource_node_selected)
 	remove_control_from_bottom_panel(_dock)
 	_dock.queue_free()
 
