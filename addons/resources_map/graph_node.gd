@@ -49,6 +49,10 @@ func get_main_slot_idx():
 	return 0
 
 
+func set_property_in_slot(slot_idx: int, value):
+	resource[_props_slots_idxs[slot_idx]] = value
+
+
 func _create_property_container(prop) -> Control:
 	var prop_container = _graph_node_prop_container_tscn.instantiate()
 	prop_container.setup(prop, resource[prop.name])

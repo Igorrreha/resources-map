@@ -47,7 +47,3 @@ config/features=PackedStringArray("4.0", "Vulkan Clustered")
 
 ResourcesMapEvents="*res://addons/resources_map/autoloads/events.gd"
 ResourcesMapUtils="*res://addons/resources_map/autoloads/utils.gd"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/resources_map/plugin.cfg")
