@@ -28,7 +28,6 @@ func setup(resources: Array):
 
 func _ready():
 	_graph_edit.connection_request.connect(_on_nodes_connection_request)
-	_graph_edit.disconnection_request.connect(_on_nodes_disconnection_request)
 	_create_graph_nodes()
 	_connect_graph_nodes()
 	_arrange_all_graph_nodes()
@@ -96,7 +95,9 @@ func _on_resource_changed(resource: Resource):
 func _on_nodes_connection_request(from: StringName, from_slot: int, to: StringName, to_slot: int):
 	var node_from: ResourceGraphNode = _nodes_by_name[from]
 	var node_to: ResourceGraphNode = _nodes_by_name[to]
-	var from_slot_type = node_from.get_slot_type_right(from_slot)
+	
+	var from_slot_global_idx = node_from.get_right_slot_global_idx(from_slot)
+	var from_slot_type = node_from.get_slot_type_right(from_slot_global_idx)
 	var to_slot_type = node_from.get_slot_type_left(to_slot)
 	
 	if (from_slot_type != to_slot_type
@@ -104,12 +105,3 @@ func _on_nodes_connection_request(from: StringName, from_slot: int, to: StringNa
 		return
 	
 	node_from.set_property_in_slot(from_slot, node_to.resource)
-
-
-func _on_nodes_disconnection_request(from: StringName, from_slot: int, to: StringName, to_slot: int):
-	var node_from: ResourceGraphNode = _nodes_by_name[from]
-	var node_to: ResourceGraphNode = _nodes_by_name[to]
-	
-	prints(node_from.resource, from_slot, node_to.resource, to_slot)
-	
-	node_from.set_property_in_slot(from_slot, null)

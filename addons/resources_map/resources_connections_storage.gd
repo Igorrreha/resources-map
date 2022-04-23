@@ -75,6 +75,7 @@ func _update_connections(resource: Resource):
 	for prop in props:
 		props_has_connection[prop.name] = false
 	
+	# change connections
 	for connection in connections_out:
 		var old_value = connection.resource
 		var new_value = resource[connection.property]
@@ -99,6 +100,7 @@ func _update_connections(resource: Resource):
 		
 		connection.resource = new_value
 	
+	# create new connections
 	for prop in props_has_connection:
 		var prop_value = resource[prop]
 		
@@ -109,10 +111,15 @@ func _update_connections(resource: Resource):
 		dirty = true
 		
 		var new_connection_out = ResourceConnection.new(prop, prop_value)
-		_resources_connections[resource].connections_out.append(new_connection_out)
+		connections_out.append(new_connection_out)
 		
 		var new_connection_in = ResourceConnection.new(prop, resource)
 		_resources_connections[prop_value].connections_in.append(new_connection_in)
+	
+	# remove null-connections
+	for connection in connections_out:
+		if not connection.resource:
+			connections_out.erase(connection)
 	
 	if dirty:
 		connections_changed.emit(resource)
